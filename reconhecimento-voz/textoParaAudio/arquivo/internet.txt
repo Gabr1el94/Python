@@ -1,0 +1,8 @@
+A Internet é um sistema global de redes de 
+computadores interligadas que utilizam um conjunto 
+próprio de protocolos (Internet Protocol Suite ou TCP/IP) 
+com o propósito de servir progressivamente usuários no mundo inteiro. 
+É uma rede de várias outras redes, que consiste de milhões de empresas privadas,
+públicas, acadêmicas e de governo, com alcance local e global 
+e que está ligada por uma ampla variedade de tecnologias de rede eletrônica, 
+sem fio e ópticas. 
