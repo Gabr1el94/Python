@@ -1,6 +1,5 @@
 # coding=utf-8
 from gtts import gTTS
-from io import BytesIO
 import playsound
 
 #Insert text and caracter
@@ -14,6 +13,5 @@ def convert_to_audio(texto,play):
     tts = gTTS(texto.decode("utf-8"),lang='pt-br')
     tts.save(play)
     play_audio(play)
-
 
 convert_to_audio(message,sound)
