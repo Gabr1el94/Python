@@ -3,8 +3,8 @@ from gtts import gTTS
 import os.path
 import playsound
 
-diretorio = raw_input('Informe o diretório arquivo de texto:')
-print(diretorio)
+diretorio = input('Informe o diretório arquivo de texto:')
+
 teste = os.path.isfile(diretorio)
 
 if teste == True:
