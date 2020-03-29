@@ -3,7 +3,7 @@ import os
 
 recon = sr.Recognizer()
 with sr.Microphone() as source:
-    print("Olá Usuário, Deseja abrur sua agenda?")
+    print("Olá Usuário, Deseja abrir sua agenda?")
     audio = recon.listen(source)
 
 resposta = recon.recognize_google(audio, language="pt-br")
