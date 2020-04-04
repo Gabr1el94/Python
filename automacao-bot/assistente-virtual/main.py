@@ -1,7 +1,7 @@
 import speech_recognition as sr
 import pyttsx3 as pyx
 from random import choice
-import config
+from config import *
 
 
 reproducao = pyx.init()
@@ -15,32 +15,68 @@ def sai_som(resposta):
     reproducao.say(resposta)
     reproducao.runAndWait()
 
-#Realizando loop da fala e reconhecimento de voz
-while True:
-    resposta_erro_aleatoria = choice(config.lista_erro)
-    recon = sr.Recognizer()
+def assistente():
+    #Realizando loop da fala e reconhecimento de voz
+    print(boas_vindas)
+    sai_som(boas_vindas)
+    while True:
+        resposta_erro_aleatoria = choice(lista_erro)
+        recon = sr.Recognizer()
 
-    #Abrindo o microfone
-    with sr.Microphone() as source:
-        recon.adjust_for_ambient_noise(source,duration=3)
+        #Abrindo o microfone
+        with sr.Microphone() as source:
+            
+            recon.adjust_for_ambient_noise(source,duration=3)
+            
+            while True:
+                try:
+
+                    #Ouvindo o usuário
+                    audio = recon.listen(source)
+                    user_name = recon.recognize_google(audio,language='pt-br')
+                    user_name = verificar_nome(user_name)
+                    name_list()
+                    apresentacao = "{}".format(verificar_nome_exist(user_name))
+                    print(apresentacao)
+                    sai_som(apresentacao)
+
+                    #guardando o nome completo
+                    brute_user_name = user_name
+                    user_name = user_name.split(" ")
+                    user_name = user_name[0]
+                    break
+                except sr.UnknownValueError:
+                    sai_som(resposta_erro_aleatoria)
+            break
+
+    print("="*len(apresentacao))
+    print("Ouvindo...")
+    while True:
         
-        while True:
-            try:
-                #Ouvindo o usuário
-                audio = recon.listen(source)
-                entrada = recon.recognize_google(audio,language='pt-br')
-                print("Você disse: {}".format(entrada))
+        resposta_erro_aleatoria = choice(lista_erro)
+        recon = sr.Recognizer()
 
-                resposta = config.conversas[entrada]
+        #Abrindo o microfone
+        with sr.Microphone() as source:
+            recon.adjust_for_ambient_noise(source,duration=3)
+            
+            while True:
+                try:
+                    #Ouvindo o usuário
+                    audio = recon.listen(source)
+                    entrada = recon.recognize_google(audio,language='pt-br')
+                    print("{}: {}".format(user_name,entrada))
 
-                print('Assistente: {}'.format(resposta))
-                sai_som(resposta)
-            except sr.UnknownValueError:
-                sai_som(resposta_erro_aleatoria)
+                    
+                    resposta = conversas[entrada]
 
-'''
-    resposta_erro_aleatoria = choice(lista_erro)
-    fala = reconhece(resposta_erro_aleatoria)
-    print(fala)
-    sai_som(fala)
-'''
+                    print('Assistente: {}'.format(resposta))
+                    sai_som(resposta)
+
+                except sr.UnknownValueError:
+                    sai_som(resposta_erro_aleatoria)
+
+if __name__=='__main__':
+    intro()
+    sai_som("Iniciando...")
+    assistente()
