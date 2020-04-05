@@ -1,18 +1,14 @@
-import socket
 from climaTemp import previsao_do_tempo
-
 version = "1.1.0"
 boas_vindas = "Olá, por favor informe o seu nome:"
 
+
 def intro():
     msg = "Assistente - versão {} / por: Gabriel Soares"
-    
-    hostname = socket.gethostname()
-    ipAddr = socket.gethostbyname(hostname)
-    
-    clima_tempo = previsao_do_tempo(ipAddr)
 
-    print("-"*len(msg)+"\n{}\n{}\n".format(msg,ipAddr)+"-"*len(msg))
+    clima_tempo = previsao_do_tempo()
+
+    print("-"*len(msg)+"\n{}\n{}\n".format(msg,clima_tempo)+"-"*len(msg))
 
 lista_erro = [
     "Não entendi nada",
