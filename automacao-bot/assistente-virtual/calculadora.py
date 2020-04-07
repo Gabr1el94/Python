@@ -8,7 +8,7 @@ def frase_to_list(text):
 
     return lista
 
-def result_operacao(respVoz):
+def operacoes_matematica(respVoz):
     listText = frase_to_list(respVoz)
     operador = listText[1].lower()
     if operador == "+" :
@@ -21,14 +21,3 @@ def result_operacao(respVoz):
         return "Sua Divisão de "+respVoz+":"+ str(int(listText[0]) / int(listText[2]))
     else:
         return "Operação não enctontrada!"
-
-
-def operacoes_matematica(entrada):
-    result = ''
-    if "quanto é" in entrada:
-        calculo = entrada.replace('quanto é',"")
-        result = result_operacao(calculo)
-    else:
-        result = conversas[entrada]
-        
-    return result

@@ -2,7 +2,6 @@ import speech_recognition as sr
 import pyttsx3 as pyx
 from random import choice
 from config import *
-from calculadora import operacoes_matematica
 
 
 reproducao = pyx.init()
@@ -10,7 +9,7 @@ reproducao = pyx.init()
 
 #Função para sair o som
 def sai_som(resposta):
-    reproducao.getProperty('voice','brazil+f4')
+    reproducao.setProperty('voice','brazil+f4')
     reproducao.setProperty('rate',140)
     reproducao.setProperty('volume', 1)
     reproducao.say(resposta)
@@ -68,7 +67,7 @@ def assistente():
                     entrada = recon.recognize_google(audio,language='pt-br')
                     print("{}: {}".format(user_name,entrada))
                     
-                    resposta = operacoes_matematica(entrada)
+                    resposta = tipo_funcao(entrada)
 
                     print('Assistente: {}'.format(resposta))
                     sai_som(resposta)
