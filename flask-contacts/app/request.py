@@ -1,4 +1,4 @@
-from flask_restful import request
+from flask_restful import reqparse
 
 def only(params:list) -> dict:
     parser = reqparse.RequestParser()
