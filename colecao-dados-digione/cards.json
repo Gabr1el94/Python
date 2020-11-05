@@ -1,0 +1,22 @@
+[
+   {
+      "title": "DESENVOLVEDOR FULL-STACK",
+      "legend": "\n                          JavaScript, HTML, ReactJS, Banco de Dados, Node.js e\n                          mais...",
+      "img": "https://hermes.digitalinnovation.one/site/images/icons/desenvolvedor_fullstack.png"
+   },
+   {
+      "title": "DESENVOLVEDOR BACK-END",
+      "legend": "NodeJS, Python, Git, MongoDB, Express e\n                          mais...",
+      "img": "https://hermes.digitalinnovation.one/site/images/icons/desenvolvedor_backend.png"
+   },
+   {
+      "title": "DESENVOLVEDOR FRONT-END",
+      "legend": "Lógica de Programação, HTML, CSS3, JavaScript, ES6 e ReactJS e\n                          mais...",
+      "img": "https://hermes.digitalinnovation.one/site/images/icons/desenvolvedor_frontend.png"
+   },
+   {
+      "title": "DESENVOLVEDOR PYTHON",
+      "legend": "Flask, Django, Bootstrap, PostgreSQL, SCRUM e\n                          mais...",
+      "img": "https://hermes.digitalinnovation.one/site/images/icons/desenvolvedor_python.png"
+   }
+]
